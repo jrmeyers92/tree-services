@@ -1,3 +1,32 @@
+# netlify.toml - Place in your project root directory
+
 [build]
-  command = "npm run build"
   publish = "dist"
+  command = "npm run build"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Content Security Policy
+    Content-Security-Policy = "default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self'"
+    
+    # Cross-Origin Opener Policy
+    Cross-Origin-Opener-Policy = "same-origin"
+    
+    # X-Frame-Options (prevents clickjacking)
+    X-Frame-Options = "DENY"
+    
+    # Additional Security Headers
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Form handling for contact form
+[[redirects]]
+  from = "/thanks"
+  to = "/thank-you.html"
+  status = 200
+
+# Netlify Forms configuration
+[build.environment]
+  NODE_VERSION = "18"
