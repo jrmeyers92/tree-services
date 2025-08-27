@@ -1,32 +1,331 @@
 ---
+// src/layouts/Layout.astro
 import "../styles/global.css";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  ogType?: string;
+  ogImage?: string;
+}
+
+const {
+  title = "Reynolds Tree Service LLC - Professional Tree Removal & Excavation St. Louis MO",
+  description = "Family-owned tree service with 13+ years experience serving St. Louis Metro. Professional tree removal, trimming, stump grinding, demolition & excavation. Fully licensed & insured. Call (636) 208-9000 for free quote.",
+  keywords = "tree removal st louis, tree service st louis, stump grinding st louis, tree trimming st louis, demolition services st louis, excavation st louis, land clearing st louis, emergency tree removal, licensed tree service missouri",
+  ogType = "website",
+  ogImage = "/og-image.jpg"
+} = Astro.props;
 ---
 
-
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<Nav />
-		<slot />
-		<Footer />
-	</body>
+<html lang="en-US">
+  <head>
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Reynolds Tree Service LLC" />
+    
+    <!-- Geographic SEO -->
+    <meta name="geo.region" content="US-MO" />
+    <meta name="geo.placename" content="St. Louis, Missouri" />
+    <meta name="geo.position" content="38.627003;-90.199402" />
+    <meta name="ICBM" content="38.627003, -90.199402" />
+    
+    <!-- Business Information -->
+    <meta name="business.name" content="Reynolds Tree Service LLC" />
+    <meta name="business.phone" content="+1-636-208-9000" />
+    <meta name="business.hours" content="Mo-Su 07:00-19:00" />
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:site_name" content="Reynolds Tree Service LLC" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={Astro.url} />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    
+    <!-- Schema.org JSON-LD Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://reynoldstreeservice.com",
+        "name": "Reynolds Tree Service LLC",
+        "alternateName": "Reynolds Tree Service",
+        "description": "Professional tree removal, trimming, stump grinding, demolition and excavation services in St. Louis Metro area. Family-owned business with 13+ years experience.",
+        "foundingDate": "2011",
+        "url": "https://reynoldstreeservice.com",
+        "telephone": "+1-636-208-9000",
+        "email": "info@reynoldstreeservice.com",
+        "priceRange": "$$",
+        "currenciesAccepted": "USD",
+        "paymentAccepted": "Cash, Check, Credit Card",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "St. Louis",
+          "addressRegion": "MO",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "38.627003",
+          "longitude": "-90.199402"
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "St. Louis",
+            "sameAs": "https://en.wikipedia.org/wiki/St._Louis"
+          },
+          {
+            "@type": "State",
+            "name": "Missouri",
+            "sameAs": "https://en.wikipedia.org/wiki/Missouri"
+          }
+        ],
+        "serviceArea": {
+          "@type": "GeoCircle",
+          "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": "38.627003",
+            "longitude": "-90.199402"
+          },
+          "geoRadius": "50000"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Tree and Land Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Tree Removal",
+                "description": "Professional tree removal services for residential and commercial properties"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Tree Trimming and Pruning",
+                "description": "Expert tree trimming and pruning services to maintain tree health and safety"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Stump Grinding",
+                "description": "Complete stump removal and grinding services"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Emergency Tree Services",
+                "description": "24/7 emergency tree removal for storm damage and hazardous situations"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Demolition Services",
+                "description": "Residential and commercial demolition services including concrete removal"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Excavation Services",
+                "description": "Land clearing, grading, and excavation for construction and landscaping"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Brush Removal",
+                "description": "Professional brush and debris removal services"
+              }
+            }
+          ]
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "07:00",
+          "closes": "19:00"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "11",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "review": [
+          {
+            "@type": "Review",
+            "author": {
+              "@type": "Person",
+              "name": "Joe & Kathy A."
+            },
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5"
+            },
+            "reviewBody": "Reynolds Tree Service LLC did a fantastic job! It actually exceeded our expectations! We had many trees and bushes to be trimmed and removed, clean up, and landscaping to be done. Basically, an entire yard of 3 acres. And they did a spectacular job. They were professional, friendly, clean-cut, and honest. We can't see us ever using anyone else. The price was right. And the job was amazing. We can't recommend Reynolds Tree Service enough.",
+            "datePublished": "2021-03-24"
+          }
+        ],
+        "makesOffer": [
+          {
+            "@type": "Offer",
+            "name": "Free Estimate",
+            "description": "Free on-site estimates for all tree, demolition, and excavation services"
+          }
+        ],
+        "slogan": "Professional Tree, Demolition & Excavation Services",
+        "owns": {
+          "@type": "OwnershipInfo",
+          "acquiredFrom": {
+            "@type": "Person",
+            "name": "Reynolds",
+            "jobTitle": "Owner/Operator"
+          }
+        },
+        "employee": {
+          "@type": "Person",
+          "name": "Reynolds",
+          "jobTitle": "Owner/Operator",
+          "hasCredential": "Registered Nurse (Former)"
+        },
+        "numberOfEmployees": "3",
+        "foundingLocation": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "MO",
+            "addressCountry": "US"
+          }
+        },
+        "knowsAbout": [
+          "Tree Removal",
+          "Tree Trimming",
+          "Stump Grinding",
+          "Demolition",
+          "Excavation",
+          "Land Clearing",
+          "Emergency Tree Service",
+          "Brush Removal"
+        ],
+        "memberOf": {
+          "@type": "Organization",
+          "name": "Thumbtack Pro Network"
+        },
+        "hasCredential": [
+          "Fully Licensed",
+          "Fully Insured",
+          "13+ Years Experience"
+        ]
+      }
+    </script>
+    
+    <!-- Additional Business Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Reynolds Tree Service LLC",
+        "url": "https://reynoldstreeservice.com",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://reynoldstreeservice.com/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        },
+        "sameAs": [
+          "https://www.thumbtack.com/mo/st-louis/tree-removal/reynolds-tree-service-llc"
+        ]
+      }
+    </script>
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="/assets/hero.jpg" as="image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-emerald-800 text-white px-4 py-2 rounded">
+      Skip to main content
+    </a>
+    
+    <Nav />
+    
+    <!-- Main content wrapper with proper semantic structure -->
+    <main id="main-content">
+      <slot />
+    </main>
+    
+    <Footer />
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Screen reader only class for accessibility */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
 </style>
