@@ -1,0 +1,260 @@
+---
+// src/components/Gallery.astro
+import { Image } from 'astro:assets';
+import heroImage from '../assets/hero.jpg';
+---
+
+<section id="gallery" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-5">
+    
+    <!-- Gallery Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-5xl font-bold text-emerald-800 mb-5">Our Work Gallery</h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">See the quality and professionalism of Reynolds Tree Service in action. 13 years of experience delivering exceptional results.</p>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="flex justify-center mb-12">
+      <div class="flex flex-wrap gap-2 bg-gray-100 p-2 rounded-xl">
+        <button class="gallery-filter active px-6 py-3 rounded-lg font-semibold transition-all duration-300 bg-emerald-800 text-white" data-filter="all">
+          All Work
+        </button>
+        <button class="gallery-filter px-6 py-3 rounded-lg font-semibold transition-all duration-300 text-gray-600 hover:text-emerald-800" data-filter="tree">
+          Tree Services
+        </button>
+        <button class="gallery-filter px-6 py-3 rounded-lg font-semibold transition-all duration-300 text-gray-600 hover:text-emerald-800" data-filter="demolition">
+          Demolition
+        </button>
+        <button class="gallery-filter px-6 py-3 rounded-lg font-semibold transition-all duration-300 text-gray-600 hover:text-emerald-800" data-filter="excavation">
+          Excavation
+        </button>
+      </div>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      
+      <!-- Tree Service Images -->
+      <div class="gallery-item tree group cursor-pointer" data-category="tree">
+        <div class="relative overflow-hidden rounded-xl bg-gray-100 aspect-[4/3] hover:shadow-xl transition-all duration-300">
+          <Image 
+            src={heroImage} 
+            alt="Tree removal service - large oak tree safely removed"
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            width={600}
+            height={400}
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h3 class="font-bold text-lg">Tree Removal</h3>
+            <p class="text-sm opacity-90">Large oak tree safely removed</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item tree group cursor-pointer" data-category="tree">
+        <div class="relative overflow-hidden rounded-xl bg-gray-100 aspect-[4/3] hover:shadow-xl transition-all duration-300">
+          <Image 
+            src={heroImage} 
+            alt="Tree trimming and pruning services"
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            width={600}
+            height={400}
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h3 class="font-bold text-lg">Tree Trimming</h3>
+            <p class="text-sm opacity-90">Professional pruning services</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item tree group cursor-pointer" data-category="tree">
+        <div class="relative overflow-hidden rounded-xl bg-gray-100 aspect-[4/3] hover:shadow-xl transition-all duration-300">
+          <Image 
+            src={heroImage} 
+            alt="Stump grinding and removal"
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            width={600}
+            height={400}
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h3 class="font-bold text-lg">Stump Grinding</h3>
+            <p class="text-sm opacity-90">Complete stump removal</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Demolition Images -->
+      <div class="gallery-item demolition group cursor-pointer" data-category="demolition">
+        <div class="relative overflow-hidden rounded-xl bg-gray-100 aspect-[4/3] hover:shadow-xl transition-all duration-300">
+          <Image 
+            src={heroImage} 
+            alt="Residential demolition services"
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            width={600}
+            height={400}
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h3 class="font-bold text-lg">House Demolition</h3>
+            <p class="text-sm opacity-90">Complete residential teardown</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item demolition group cursor-pointer" data-category="demolition">
+        <div class="relative overflow-hidden rounded-xl bg-gray-100 aspect-[4/3] hover:shadow-xl transition-all duration-300">
+          <Image 
+            src={heroImage} 
+            alt="Concrete removal and demolition"
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            width={600}
+            height={400}
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h3 class="font-bold text-lg">Concrete Removal</h3>
+            <p class="text-sm opacity-90">Driveway and foundation demo</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item demolition group cursor-pointer" data-category="demolition">
+        <div class="relative overflow-hidden rounded-xl bg-gray-100 aspect-[4/3] hover:shadow-xl transition-all duration-300">
+          <Image 
+            src={heroImage} 
+            alt="Garage and shed demolition"
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            width={600}
+            height={400}
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h3 class="font-bold text-lg">Garage Demo</h3>
+            <p class="text-sm opacity-90">Structure removal & cleanup</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Excavation Images -->
+      <div class="gallery-item excavation group cursor-pointer" data-category="excavation">
+        <div class="relative overflow-hidden rounded-xl bg-gray-100 aspect-[4/3] hover:shadow-xl transition-all duration-300">
+          <Image 
+            src={heroImage} 
+            alt="Land clearing and grading services"
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            width={600}
+            height={400}
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h3 class="font-bold text-lg">Land Clearing</h3>
+            <p class="text-sm opacity-90">Site preparation & grading</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item excavation group cursor-pointer" data-category="excavation">
+        <div class="relative overflow-hidden rounded-xl bg-gray-100 aspect-[4/3] hover:shadow-xl transition-all duration-300">
+          <Image 
+            src={heroImage} 
+            alt="Foundation excavation work"
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            width={600}
+            height={400}
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h3 class="font-bold text-lg">Foundation Excavation</h3>
+            <p class="text-sm opacity-90">Precision digging services</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item excavation group cursor-pointer" data-category="excavation">
+        <div class="relative overflow-hidden rounded-xl bg-gray-100 aspect-[4/3] hover:shadow-xl transition-all duration-300">
+          <Image 
+            src={heroImage} 
+            alt="Drainage solutions and trenching"
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            width={600}
+            height={400}
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h3 class="font-bold text-lg">Drainage Solutions</h3>
+            <p class="text-sm opacity-90">Trenching & water management</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Gallery CTA -->
+    <div class="text-center bg-gray-50 rounded-2xl p-12">
+      <h3 class="text-3xl font-bold text-emerald-800 mb-4">Ready to Start Your Project?</h3>
+      <p class="text-lg text-gray-600 mb-8">Contact Reynolds Tree Service for a free estimate on your tree, demolition, or excavation needs.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="tel:6362089000" class="bg-yellow-500 hover:bg-yellow-400 text-black px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:-translate-y-1 w-full sm:w-auto text-center">
+          Call (636) 208-9000
+        </a>
+        <a href="#contact" class="bg-emerald-800 hover:bg-emerald-900 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:-translate-y-1 w-full sm:w-auto text-center">
+          Get Free Quote
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.gallery-filter');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const filter = this.getAttribute('data-filter');
+        
+        // Update active button
+        filterButtons.forEach(btn => {
+          btn.classList.remove('active', 'bg-emerald-800', 'text-white');
+          btn.classList.add('text-gray-600');
+        });
+        
+        this.classList.add('active', 'bg-emerald-800', 'text-white');
+        this.classList.remove('text-gray-600');
+
+        // Filter gallery items
+        galleryItems.forEach(item => {
+          const category = item.getAttribute('data-category');
+          
+          if (filter === 'all' || category === filter) {
+            item.style.display = 'block';
+            item.style.opacity = '0';
+            setTimeout(() => {
+              item.style.opacity = '1';
+            }, 100);
+          } else {
+            item.style.opacity = '0';
+            setTimeout(() => {
+              item.style.display = 'none';
+            }, 300);
+          }
+        });
+      });
+    });
+  });
+</script>
+
+<style>
+  .gallery-item {
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .gallery-filter {
+    transition: all 0.3s ease;
+  }
+</style>

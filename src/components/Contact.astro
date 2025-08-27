@@ -1,0 +1,285 @@
+---
+// src/components/Contact.astro
+---
+
+<section id="contact" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-5">
+    
+    <!-- Contact Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-5xl font-bold text-emerald-800 mb-5">Get Your Free Quote Today</h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">Ready to get started? Contact Reynolds Tree Service for professional tree, demolition, and excavation services. We're here to help with your project needs.</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      
+      <!-- Contact Form -->
+      <div class="bg-gray-50 rounded-2xl p-8">
+        <h3 class="text-2xl font-bold text-emerald-800 mb-6">Request a Free Quote</h3>
+        
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-6">
+          <!-- Honeypot field for spam prevention -->
+          <div class="hidden">
+            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+          </div>
+          
+          <!-- Name Fields -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
+              <input 
+                type="text" 
+                id="firstName" 
+                name="firstName" 
+                required 
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
+                placeholder="John"
+              >
+            </div>
+            <div>
+              <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
+              <input 
+                type="text" 
+                id="lastName" 
+                name="lastName" 
+                required 
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
+                placeholder="Smith"
+              >
+            </div>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                required 
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
+                placeholder="john@example.com"
+              >
+            </div>
+            <div>
+              <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone" 
+                required 
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
+                placeholder="(636) 555-0123"
+              >
+            </div>
+          </div>
+
+          <!-- Service Type -->
+          <div>
+            <label for="serviceType" class="block text-sm font-medium text-gray-700 mb-2">Service Needed *</label>
+            <select 
+              id="serviceType" 
+              name="serviceType" 
+              required 
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
+            >
+              <option value="">Select a service...</option>
+              <option value="Tree Removal">Tree Removal</option>
+              <option value="Tree Trimming">Tree Trimming & Pruning</option>
+              <option value="Stump Grinding">Stump Grinding</option>
+              <option value="Emergency Tree Service">Emergency Tree Service</option>
+              <option value="Residential Demolition">Residential Demolition</option>
+              <option value="Commercial Demolition">Commercial Demolition</option>
+              <option value="Concrete Removal">Concrete Removal</option>
+              <option value="Land Clearing">Land Clearing & Grading</option>
+              <option value="Excavation">Excavation Services</option>
+              <option value="Multiple Services">Multiple Services</option>
+              <option value="Other">Other (specify in message)</option>
+            </select>
+          </div>
+
+          <!-- Property Address -->
+          <div>
+            <label for="address" class="block text-sm font-medium text-gray-700 mb-2">Property Address</label>
+            <input 
+              type="text" 
+              id="address" 
+              name="address" 
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
+              placeholder="123 Main St, Your City, MO 63XXX"
+            >
+          </div>
+
+          <!-- Project Timeline -->
+          <div>
+            <label for="timeline" class="block text-sm font-medium text-gray-700 mb-2">Project Timeline</label>
+            <select 
+              id="timeline" 
+              name="timeline" 
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
+            >
+              <option value="">When do you need this done?</option>
+              <option value="ASAP/Emergency">ASAP / Emergency</option>
+              <option value="Within 1 week">Within 1 week</option>
+              <option value="Within 2 weeks">Within 2 weeks</option>
+              <option value="Within 1 month">Within 1 month</option>
+              <option value="Within 2-3 months">Within 2-3 months</option>
+              <option value="No rush">No rush / Planning ahead</option>
+            </select>
+          </div>
+
+          <!-- Project Description -->
+          <div>
+            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Project Details *</label>
+            <textarea 
+              id="message" 
+              name="message" 
+              required 
+              rows="5" 
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
+              placeholder="Please describe your project in detail. Include information like tree size, number of trees, type of demolition, excavation scope, any obstacles or special considerations, etc."
+            ></textarea>
+          </div>
+
+          <!-- Preferred Contact Method -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-3">Preferred Contact Method</label>
+            <div class="flex flex-wrap gap-4">
+              <label class="flex items-center">
+                <input type="radio" name="contactMethod" value="Phone" class="text-emerald-600 focus:ring-emerald-500">
+                <span class="ml-2 text-gray-700">Phone Call</span>
+              </label>
+              <label class="flex items-center">
+                <input type="radio" name="contactMethod" value="Text" class="text-emerald-600 focus:ring-emerald-500">
+                <span class="ml-2 text-gray-700">Text Message</span>
+              </label>
+              <label class="flex items-center">
+                <input type="radio" name="contactMethod" value="Email" class="text-emerald-600 focus:ring-emerald-500">
+                <span class="ml-2 text-gray-700">Email</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="pt-4">
+            <button 
+              type="submit" 
+              class="w-full bg-emerald-800 hover:bg-emerald-900 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+            >
+              Send My Free Quote Request
+            </button>
+          </div>
+
+          <!-- Form Note -->
+          <p class="text-sm text-gray-500 text-center">
+            By submitting this form, you agree to be contacted by Reynolds Tree Service regarding your project. We typically respond within 24 hours.
+          </p>
+        </form>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-2xl font-bold text-emerald-800 mb-6">Contact Information</h3>
+          
+          <!-- Phone -->
+          <div class="flex items-center gap-4 mb-6">
+            <div class="bg-emerald-100 p-3 rounded-full">
+              <svg class="w-6 h-6 text-emerald-800" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800">Phone</h4>
+              <a href="tel:6362089000" class="text-emerald-800 hover:text-emerald-900 font-medium text-lg">(636) 208-9000</a>
+            </div>
+          </div>
+
+          <!-- Business Hours -->
+          <div class="flex items-start gap-4 mb-6">
+            <div class="bg-emerald-100 p-3 rounded-full">
+              <svg class="w-6 h-6 text-emerald-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800 mb-2">Business Hours</h4>
+              <div class="text-gray-600 space-y-1">
+                <p>Monday - Sunday</p>
+                <p class="font-medium">7:00 AM - 7:00 PM</p>
+                <p class="text-sm text-emerald-700 font-medium">Emergency services available 24/7</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Area -->
+          <div class="flex items-start gap-4 mb-6">
+            <div class="bg-emerald-100 p-3 rounded-full">
+              <svg class="w-6 h-6 text-emerald-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800 mb-2">Service Area</h4>
+              <p class="text-gray-600">Greater St. Louis Metro Area</p>
+              <p class="text-sm text-gray-500">Contact us to confirm service in your area</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Why Choose Us -->
+        <div class="bg-emerald-50 rounded-2xl p-8">
+          <h3 class="text-xl font-bold text-emerald-800 mb-4">Why Choose Reynolds Tree Service?</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-gray-700"><strong>13 Years Experience</strong> - Family-owned with proven expertise</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-gray-700"><strong>Fully Licensed & Insured</strong> - Complete protection for your property</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-gray-700"><strong>Professional Team</strong> - Clean language, respectful service</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-gray-700"><strong>Complete Cleanup</strong> - We leave your property spotless</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-gray-700"><strong>Fair Pricing</strong> - Honest estimates, no hidden fees</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Emergency Notice -->
+        <div class="bg-red-50 border border-red-200 rounded-2xl p-6">
+          <div class="flex items-center gap-3 mb-3">
+            <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.924-.833-2.464 0L3.732 16c-.77.833.192 2.5 1.732 2.5z"></path>
+            </svg>
+            <h4 class="font-bold text-red-800">Emergency Tree Service</h4>
+          </div>
+          <p class="text-red-700 mb-3">Storm damage? Fallen tree? We provide 24/7 emergency services.</p>
+          <a href="tel:6362089000" class="inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-bold transition-colors">
+            Call Now: (636) 208-9000
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
